@@ -28,13 +28,16 @@ def print_board(bo):
                     print(bo[i][j])
             else:
                 if bo[i][j] == 0:
-                    print("  " , end = "")
+                    print("  ", end="")
                 else:
-                    print(str(bo[i][j]) + " " , end="")
+                    print(str(bo[i][j]) + " ", end="")
+
 
 def find_empty(bo):
-    print()
-
+    for i in range(len(bo)):
+        for j in range(len(bo[0])):
+            if bo[i][j] == 0:
+                return j, i  # returns the x, y coordinate of the blank spot on the board ( top left being 0,0 )
 
 
 print_board(board)
