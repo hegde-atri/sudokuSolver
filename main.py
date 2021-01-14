@@ -4,12 +4,26 @@ from tkinter import *
 
 root = Tk()
 
+
+#define functions for action on buttun press
+def myClick():
+    secondLabel = Label(root, text="Button was clicked!").grid(row=0, column=0)
+
+
+
+
+
+
 #Creation
 
 firstLabel = Label(root, text="First Label").grid(row=0, column=0)
 
 
-myButton = Button(root, text="Click me", padx=50, pady=50, state=DISABLED). grid(row=1, column=1)
+myButton = Button(root, text="Click me", padx=50, pady=50, command=myClick, fg="white", bg="grey"). grid(row=1, column=1)
+
+
+
+
 
 
 #run the window
@@ -101,5 +115,3 @@ def find_empty(bo):
 
     return None
 
-
-print_board(board)
