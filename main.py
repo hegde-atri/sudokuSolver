@@ -1,35 +1,25 @@
-from _tkinter import *
-import time
 from tkinter import *
 
 root = Tk()
+myBox = Entry(root, width=50, borderwidth=2, fg="white", bg="grey")
+# Always initialize these separately on two line.
+myBox.grid(row=0, column=1)
 
 
-#define functions for action on buttun press
-def myClick():
-    secondLabel = Label(root, text="Button was clicked!").grid(row=0, column=0)
+# define functions for action on button press
 
 
+def myclick():
+    secondLabel = Label(root, text=myBox.get())
+    secondLabel.grid(row=2, column=0)
 
 
-
-
-#Creation
-
+# Creation
 firstLabel = Label(root, text="First Label").grid(row=0, column=0)
+myButton = Button(root, text="Click me", padx=50, pady=50, command=myclick, fg="white", bg="grey").grid(row=1, column=1)
 
-
-myButton = Button(root, text="Click me", padx=50, pady=50, command=myClick, fg="white", bg="grey"). grid(row=1, column=1)
-
-
-
-
-
-
-#run the window
+# run the window
 root.mainloop()
-
-
 
 board = [[8, 0, 0, 0, 0, 0, 0, 0, 0],
          [0, 0, 3, 6, 0, 0, 0, 0, 0],
@@ -44,6 +34,7 @@ board = [[8, 0, 0, 0, 0, 0, 0, 0, 0],
 global counter
 counter = 1
 
+
 def solve(bo):
     global counter
     find = find_empty(bo)
@@ -56,7 +47,7 @@ def solve(bo):
         if valid(bo, i, (row, col)):
             bo[row][col] = i
             print("Iteration number:\t" + str(counter))
-            #time.sleep(0.5)
+            # time.sleep(0.5)
             counter = counter + 1
             print_board(board)
             print("\n\n")
@@ -114,4 +105,3 @@ def find_empty(bo):
                 return (i, j)  # returns the x, y coordinate of the blank spot on the board ( top left being 0,0 )
 
     return None
-
