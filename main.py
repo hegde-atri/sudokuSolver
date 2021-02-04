@@ -1,25 +1,4 @@
-from tkinter import *
-
-root = Tk()
-myBox = Entry(root, width=50, borderwidth=2, fg="white", bg="grey")
-# Always initialize these separately on two line.
-myBox.grid(row=0, column=1)
-
-
-# define functions for action on button press
-
-
-def myclick():
-    secondLabel = Label(root, text=myBox.get())
-    secondLabel.grid(row=2, column=0)
-
-
-# Creation
-firstLabel = Label(root, text="First Label").grid(row=0, column=0)
-myButton = Button(root, text="Click me", padx=50, pady=50, command=myclick, fg="white", bg="grey").grid(row=1, column=1)
-
-# run the window
-root.mainloop()
+# import time
 
 board = [[8, 0, 0, 0, 0, 0, 0, 0, 0],
          [0, 0, 3, 6, 0, 0, 0, 0, 0],
@@ -31,7 +10,6 @@ board = [[8, 0, 0, 0, 0, 0, 0, 0, 0],
          [0, 0, 8, 5, 0, 0, 0, 1, 0],
          [0, 9, 0, 0, 0, 0, 4, 0, 0]]
 
-global counter
 counter = 1
 
 
@@ -46,11 +24,10 @@ def solve(bo):
     for i in range(1, 10):
         if valid(bo, i, (row, col)):
             bo[row][col] = i
-            print("Iteration number:\t" + str(counter))
-            # time.sleep(0.5)
+            # print("Iteration number:\t" + str(counter))
+            # time.sleep(0.05)
             counter = counter + 1
-            print_board(board)
-            print("\n\n")
+            # print_board(board)
 
             if solve(bo):
                 return True
