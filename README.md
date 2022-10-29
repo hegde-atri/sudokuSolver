@@ -2,3 +2,5 @@
 
 # sudokuSolver
 
+TODO - 
+- [ ] GUI
