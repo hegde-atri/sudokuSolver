@@ -2,5 +2,6 @@
 
 # sudokuSolver
 
-TODO - 
+TODO
+- [X] Recursive solving algorithm
 - [ ] GUI
